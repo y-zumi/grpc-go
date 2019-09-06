@@ -1,18 +1,27 @@
 syntax = "proto3";
 
+// UsersService manage user data.
+// Currently, it provide FindByID function. It will provide other function in the near future...
 service Users {
+    // Find user by user id
     rpc FindByID (FindByIDRequest) returns (FindByIDResponse) {}
 }
 
+// Find user information
 message FindByIDRequest {
     string id = 1;
 }
 
+// Return information of found user
 message FindByIDResponse {
     User user = 1;
 }
 
+// A User resource
 message User {
+    // user's id
     string id = 1;
+
+    // user's nickname
     string name = 2;
 }
