@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+service Users {
+    rpc FindByID (FindByIDRequest) returns (FindByIDResponse) {}
+}
+
+message FindByIDRequest {
+    string id = 1;
+}
+
+message FindByIDResponse {
+    User user = 1;
+}
+
+message User {
+    string id = 1;
+    string name = 2;
+}
