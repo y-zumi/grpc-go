@@ -6,7 +6,7 @@ import (
 	"net"
 
 	"github.com/bxcodec/faker/v3"
-	pb "github.com/y-zumi/grpc-go/proto"
+	"github.com/y-zumi/grpc-go/proto/user"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )
@@ -15,9 +15,9 @@ import (
 type UserService struct{}
 
 // FindByID find user by user id
-func (s *UserService) FindByID(ctx context.Context, req *pb.FindByIDRequest) (*pb.FindByIDResponse, error) {
-	return &pb.FindByIDResponse{
-		User: &pb.User{
+func (s *UserService) FindByID(ctx context.Context, req *user.FindByIDRequest) (*user.FindByIDResponse, error) {
+	return &user.FindByIDResponse{
+		User: &user.User{
 			Id:   req.Id,
 			Name: faker.Name(),
 		},
@@ -33,7 +33,7 @@ func main() {
 
 	// Register UsersServer to gRPC Server
 	s := grpc.NewServer()
-	pb.RegisterUsersServer(s, &UserService{})
+	user.RegisterUsersServer(s, &UserService{})
 
 	// Add grpc.reflection.v1alpha.ServerReflection
 	reflection.Register(s)

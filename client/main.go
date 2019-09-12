@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	pb "github.com/y-zumi/grpc-go/proto"
+	"github.com/y-zumi/grpc-go/proto/user"
 	"google.golang.org/grpc"
 )
 
@@ -16,12 +16,12 @@ func main() {
 		log.Fatalf("did not connect: %v", err)
 	}
 	defer conn.Close()
-	c := pb.NewUsersClient(conn)
+	c := user.NewUsersClient(conn)
 
 	// Request to gRPC server
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.FindByID(ctx, &pb.FindByIDRequest{
+	r, err := c.FindByID(ctx, &user.FindByIDRequest{
 		Id: "1",
 	})
 	if err != nil {
