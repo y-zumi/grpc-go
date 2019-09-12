@@ -5,6 +5,7 @@ import (
 	"log"
 	"net"
 
+	"github.com/bxcodec/faker/v3"
 	pb "github.com/y-zumi/grpc-go/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
@@ -18,7 +19,7 @@ func (s *UserService) FindByID(ctx context.Context, req *pb.FindByIDRequest) (*p
 	return &pb.FindByIDResponse{
 		User: &pb.User{
 			Id:   req.Id,
-			Name: "Sample",
+			Name: faker.Name(),
 		},
 	}, nil
 }
