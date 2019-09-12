@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package book;
+
+import "proto/user/user.proto";
+
+service BookService {
+    rpc FindLendingBookByID (RequestFindLendingBookByID) returns (ResponseFindLendingBookByID);
+}
+
+message RequestFindLendingBookByID {
+    string id = 1;
+}
+
+message ResponseFindLendingBookByID {
+    Book book = 1;
+    user.User borrower = 2;
+}
+
+message Book {
+
+}

@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package user;
+
 // UsersService manage user data.
 // Currently, it provide FindByID function. It will provide other function in the near future...
 service Users {
