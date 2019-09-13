@@ -26,7 +26,7 @@ func (s *UserService) FindByID(ctx context.Context, req *user.FindByIDRequest) (
 
 func main() {
 	// Start listening port
-	lis, err := net.Listen("tcp", ":5001")
+	lis, err := net.Listen("tcp", ":50001")
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
