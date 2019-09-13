@@ -19,7 +19,6 @@ spec:
           image: gcr.io/[YOUR_PROJECT_ID]/user-service:v1.0
           ports:
             - containerPort: 50001
-
         - name: book-service
           image: gcr.io/[YOUR_PROJECT_ID]/book-service:v1.0
           ports:
