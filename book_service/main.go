@@ -28,6 +28,7 @@ func NewBookService(client user.UsersClient) *BookService {
 }
 
 func (s *BookService) FindLendingBookByID(ctx context.Context, req *book.FindLendingBookByIDRequest) (*book.FindLendingBookByIDResponse, error) {
+	// request UserService
 	findByIDRequest := user.FindByIDRequest{
 		Id: faker.UUIDDigit(),
 	}
@@ -53,9 +54,9 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	// Register UsersServer to gRPC Server
+	// Register BookService to gRPC Server
 	s := grpc.NewServer()
-	bookService, err := CreateBookService()
+	bookService, err := createBookService()
 	if err != nil {
 		log.Fatalf("did not create book service: %v", err)
 	}
@@ -70,8 +71,8 @@ func main() {
 	}
 }
 
-func CreateBookService() (*BookService, error) {
-	cli, err := NewUserClient()
+func createBookService() (*BookService, error) {
+	cli, err := newUserClient()
 	if err != nil {
 		return nil, errors.Wrap(err, "did not create user client")
 	}
@@ -79,7 +80,7 @@ func CreateBookService() (*BookService, error) {
 	return NewBookService(cli), nil
 }
 
-func NewUserClient() (user.UsersClient, error) {
+func newUserClient() (user.UsersClient, error) {
 	conn, err := grpc.Dial("localhost:50001", grpc.WithInsecure())
 	if err != nil {
 		return nil, errors.Wrap(err, "did not connect localhost:5001")

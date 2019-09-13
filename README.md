@@ -1,28 +1,28 @@
-## Overview
-1. start gRPC server
-    ```bash
-    $ go run server/main.go
-    ```
-1. call gRPC server via gRPC client
-    ```bash
-   $ go run client/main.go
-    ```
-1. get response from gRPC server
-    ```bash
-   2019/09/06 23:15:16 User: id:"1" name:"Sample"
-    ```
+## How to deploy to GKE
+I wrote blog how to deploy to GKE.  
+https://y-zumi.hatenablog.com/entry/2019/09/13/234018
 
-## When you use grpcurl
-1. call gRPC server with grpcurl
+## Overview
+1. start User gRPC server
     ```bash
-    $ echo '{"id": "1"}' | grpcurl -k call localhost:5001 Users.FindByID | jq .
+    $ go run user_service/main.go
     ```
-1. get response from gRPC server
-    ```json
-    {
-      "user": {
-        "id": "1",
-        "name": "Sample"
-      }
-    }
+1. start Book gRPC server
+    ```bash
+   $ go run book_service/main.go
+    ```
+1. access to Book gRPC server with [grpcurl](https://github.com/kazegusuri/grpcurl)
+    ```bash
+   $ echo '{"id": "j3j32dj0129"}' | grpcurl -k call localhost:50011 book.Books.FindLendingBookByID | jq .
+   {
+     "book": {
+       "id": "j3j32dj0129",
+       "title": "commodi",
+       "status": "Lending"
+     },
+     "borrower": {
+       "id": "179a14d146514c92aeb519be0c6a4cc6",
+       "name": "Miss Maeve Larson"
+     }
+   }
     ```
