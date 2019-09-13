@@ -2,14 +2,15 @@ package main
 
 import (
 	"context"
-	"errors"
 	"log"
-	"time"
+	"net"
 
 	"github.com/bxcodec/faker/v3"
+	"github.com/pkg/errors"
 	"github.com/y-zumi/grpc-go/proto/book"
 	"github.com/y-zumi/grpc-go/proto/user"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 const (
@@ -26,7 +27,7 @@ func NewBookService(client user.UsersClient) *BookService {
 	}
 }
 
-func (s *BookService) FindLendingBookByID(ctx context.Context, req book.FindLendingBookByIDRequest) (*book.FindLendingBookByIDResponse, error) {
+func (s *BookService) FindLendingBookByID(ctx context.Context, req *book.FindLendingBookByIDRequest) (*book.FindLendingBookByIDResponse, error) {
 	findByIDRequest := user.FindByIDRequest{
 		Id: faker.UUIDDigit(),
 	}
@@ -46,25 +47,43 @@ func (s *BookService) FindLendingBookByID(ctx context.Context, req book.FindLend
 }
 
 func main() {
-	// Set up a gRPC client
-	conn, err := grpc.Dial("localhost:5001", grpc.WithInsecure())
+	// Start listening port
+	lis, err := net.Listen("tcp", ":50011")
 	if err != nil {
-		log.Fatalf("did not connect: %v", err)
-	}
-	defer conn.Close()
-	usersClient := user.NewUsersClient(conn)
-
-	// Request to gRPC server
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
-	defer cancel()
-
-	bookService := NewBookService(usersClient)
-	resp, err := bookService.FindLendingBookByID(ctx, book.FindLendingBookByIDRequest{
-		Id: "123",
-	})
-	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("failed to listen: %v", err)
 	}
 
-	log.Printf("Book: %v", resp)
+	// Register UsersServer to gRPC Server
+	s := grpc.NewServer()
+	bookService, err := CreateBookService()
+	if err != nil {
+		log.Fatalf("did not create book service: %v", err)
+	}
+	book.RegisterBooksServer(s, bookService)
+
+	// Add grpc.reflection.v1alpha.ServerReflection
+	reflection.Register(s)
+
+	// Start server
+	if err := s.Serve(lis); err != nil {
+		log.Fatalf("failed to serve: %v", err)
+	}
+}
+
+func CreateBookService() (*BookService, error) {
+	cli, err := NewUserClient()
+	if err != nil {
+		return nil, errors.Wrap(err, "did not create user client")
+	}
+
+	return NewBookService(cli), nil
+}
+
+func NewUserClient() (user.UsersClient, error) {
+	conn, err := grpc.Dial("localhost:50001", grpc.WithInsecure())
+	if err != nil {
+		return nil, errors.Wrap(err, "did not connect localhost:5001")
+	}
+
+	return user.NewUsersClient(conn), nil
 }
