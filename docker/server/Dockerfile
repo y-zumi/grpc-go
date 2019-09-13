@@ -4,4 +4,6 @@ WORKDIR /go/src/github.com/y-zumi/grpc-go
 
 COPY . /go/src/github.com/y-zumi/grpc-go
 
+EXPOSE "50001"
+
 CMD ["go", "run", "server/main.go"]
