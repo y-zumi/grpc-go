@@ -25,46 +25,46 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type RequestFindLendingBookByID struct {
+type FindLendingBookByIDRequest struct {
 	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RequestFindLendingBookByID) Reset()         { *m = RequestFindLendingBookByID{} }
-func (m *RequestFindLendingBookByID) String() string { return proto.CompactTextString(m) }
-func (*RequestFindLendingBookByID) ProtoMessage()    {}
-func (*RequestFindLendingBookByID) Descriptor() ([]byte, []int) {
+func (m *FindLendingBookByIDRequest) Reset()         { *m = FindLendingBookByIDRequest{} }
+func (m *FindLendingBookByIDRequest) String() string { return proto.CompactTextString(m) }
+func (*FindLendingBookByIDRequest) ProtoMessage()    {}
+func (*FindLendingBookByIDRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_98814f1514a537b6, []int{0}
 }
 
-func (m *RequestFindLendingBookByID) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RequestFindLendingBookByID.Unmarshal(m, b)
+func (m *FindLendingBookByIDRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FindLendingBookByIDRequest.Unmarshal(m, b)
 }
-func (m *RequestFindLendingBookByID) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RequestFindLendingBookByID.Marshal(b, m, deterministic)
+func (m *FindLendingBookByIDRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FindLendingBookByIDRequest.Marshal(b, m, deterministic)
 }
-func (m *RequestFindLendingBookByID) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RequestFindLendingBookByID.Merge(m, src)
+func (m *FindLendingBookByIDRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FindLendingBookByIDRequest.Merge(m, src)
 }
-func (m *RequestFindLendingBookByID) XXX_Size() int {
-	return xxx_messageInfo_RequestFindLendingBookByID.Size(m)
+func (m *FindLendingBookByIDRequest) XXX_Size() int {
+	return xxx_messageInfo_FindLendingBookByIDRequest.Size(m)
 }
-func (m *RequestFindLendingBookByID) XXX_DiscardUnknown() {
-	xxx_messageInfo_RequestFindLendingBookByID.DiscardUnknown(m)
+func (m *FindLendingBookByIDRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_FindLendingBookByIDRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_RequestFindLendingBookByID proto.InternalMessageInfo
+var xxx_messageInfo_FindLendingBookByIDRequest proto.InternalMessageInfo
 
-func (m *RequestFindLendingBookByID) GetId() string {
+func (m *FindLendingBookByIDRequest) GetId() string {
 	if m != nil {
 		return m.Id
 	}
 	return ""
 }
 
-type ResponseFindLendingBookByID struct {
+type FindLendingBookByIDResponse struct {
 	Book                 *Book      `protobuf:"bytes,1,opt,name=book,proto3" json:"book,omitempty"`
 	Borrower             *user.User `protobuf:"bytes,2,opt,name=borrower,proto3" json:"borrower,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
@@ -72,39 +72,39 @@ type ResponseFindLendingBookByID struct {
 	XXX_sizecache        int32      `json:"-"`
 }
 
-func (m *ResponseFindLendingBookByID) Reset()         { *m = ResponseFindLendingBookByID{} }
-func (m *ResponseFindLendingBookByID) String() string { return proto.CompactTextString(m) }
-func (*ResponseFindLendingBookByID) ProtoMessage()    {}
-func (*ResponseFindLendingBookByID) Descriptor() ([]byte, []int) {
+func (m *FindLendingBookByIDResponse) Reset()         { *m = FindLendingBookByIDResponse{} }
+func (m *FindLendingBookByIDResponse) String() string { return proto.CompactTextString(m) }
+func (*FindLendingBookByIDResponse) ProtoMessage()    {}
+func (*FindLendingBookByIDResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_98814f1514a537b6, []int{1}
 }
 
-func (m *ResponseFindLendingBookByID) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ResponseFindLendingBookByID.Unmarshal(m, b)
+func (m *FindLendingBookByIDResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FindLendingBookByIDResponse.Unmarshal(m, b)
 }
-func (m *ResponseFindLendingBookByID) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ResponseFindLendingBookByID.Marshal(b, m, deterministic)
+func (m *FindLendingBookByIDResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FindLendingBookByIDResponse.Marshal(b, m, deterministic)
 }
-func (m *ResponseFindLendingBookByID) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ResponseFindLendingBookByID.Merge(m, src)
+func (m *FindLendingBookByIDResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FindLendingBookByIDResponse.Merge(m, src)
 }
-func (m *ResponseFindLendingBookByID) XXX_Size() int {
-	return xxx_messageInfo_ResponseFindLendingBookByID.Size(m)
+func (m *FindLendingBookByIDResponse) XXX_Size() int {
+	return xxx_messageInfo_FindLendingBookByIDResponse.Size(m)
 }
-func (m *ResponseFindLendingBookByID) XXX_DiscardUnknown() {
-	xxx_messageInfo_ResponseFindLendingBookByID.DiscardUnknown(m)
+func (m *FindLendingBookByIDResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_FindLendingBookByIDResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ResponseFindLendingBookByID proto.InternalMessageInfo
+var xxx_messageInfo_FindLendingBookByIDResponse proto.InternalMessageInfo
 
-func (m *ResponseFindLendingBookByID) GetBook() *Book {
+func (m *FindLendingBookByIDResponse) GetBook() *Book {
 	if m != nil {
 		return m.Book
 	}
 	return nil
 }
 
-func (m *ResponseFindLendingBookByID) GetBorrower() *user.User {
+func (m *FindLendingBookByIDResponse) GetBorrower() *user.User {
 	if m != nil {
 		return m.Borrower
 	}
@@ -167,30 +167,30 @@ func (m *Book) GetStatus() string {
 }
 
 func init() {
-	proto.RegisterType((*RequestFindLendingBookByID)(nil), "book.RequestFindLendingBookByID")
-	proto.RegisterType((*ResponseFindLendingBookByID)(nil), "book.ResponseFindLendingBookByID")
+	proto.RegisterType((*FindLendingBookByIDRequest)(nil), "book.FindLendingBookByIDRequest")
+	proto.RegisterType((*FindLendingBookByIDResponse)(nil), "book.FindLendingBookByIDResponse")
 	proto.RegisterType((*Book)(nil), "book.Book")
 }
 
 func init() { proto.RegisterFile("proto/book/book.proto", fileDescriptor_98814f1514a537b6) }
 
 var fileDescriptor_98814f1514a537b6 = []byte{
-	// 230 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x50, 0x4f, 0x4b, 0x87, 0x40,
-	0x10, 0xe5, 0x67, 0x26, 0x39, 0x42, 0x87, 0xed, 0x0f, 0x62, 0x10, 0xe6, 0x21, 0x3a, 0x84, 0x81,
-	0x7d, 0x03, 0x91, 0x20, 0xe8, 0xb4, 0xd1, 0xa5, 0x5b, 0xb6, 0x43, 0x2c, 0xc6, 0x8e, 0xed, 0xae,
-	0x45, 0xdf, 0x3e, 0x76, 0xb4, 0x0e, 0xa1, 0x97, 0x61, 0xdf, 0xbc, 0xf7, 0x76, 0xde, 0x0c, 0x9c,
-	0x8c, 0x96, 0x3c, 0xdd, 0xf4, 0x44, 0x03, 0x97, 0x9a, 0xb1, 0x88, 0xc3, 0xbb, 0x58, 0xc8, 0xc9,
-	0xa1, 0xe5, 0x32, 0x93, 0xd5, 0x35, 0x14, 0x12, 0x3f, 0x26, 0x74, 0xfe, 0x4e, 0x1b, 0xf5, 0x80,
-	0x46, 0x69, 0xf3, 0xd6, 0x12, 0x0d, 0xed, 0xf7, 0x7d, 0x27, 0x0e, 0x21, 0xd2, 0x2a, 0xdf, 0x95,
-	0xbb, 0xab, 0x54, 0x46, 0x5a, 0x55, 0x08, 0x67, 0x12, 0xdd, 0x48, 0xc6, 0xe1, 0x9a, 0xfc, 0x1c,
-	0x78, 0x16, 0x1b, 0xb2, 0x06, 0x6a, 0x0e, 0x11, 0x58, 0xc9, 0x7d, 0x71, 0x09, 0x07, 0x3d, 0x59,
-	0x4b, 0x5f, 0x68, 0xf3, 0x68, 0xd1, 0x70, 0x96, 0x27, 0x87, 0x56, 0xfe, 0x71, 0x55, 0x07, 0x71,
-	0x70, 0xfd, 0x1f, 0x2f, 0x8e, 0x61, 0xdf, 0x6b, 0xff, 0x8e, 0x6c, 0x4e, 0xe5, 0x0c, 0xc4, 0x29,
-	0x24, 0xce, 0xbf, 0xf8, 0xc9, 0xe5, 0x7b, 0xdc, 0x5e, 0x50, 0xa3, 0x21, 0x0b, 0xbf, 0x3c, 0xa2,
-	0xfd, 0xd4, 0xaf, 0x28, 0x9e, 0xe1, 0x68, 0x2d, 0x73, 0x39, 0xa7, 0xdc, 0x3e, 0x42, 0x71, 0xf1,
-	0xab, 0xd8, 0x5c, 0xbc, 0x4f, 0xf8, 0x98, 0xb7, 0x3f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x4b, 0x19,
-	0x7c, 0x51, 0x82, 0x01, 0x00, 0x00,
+	// 232 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x50, 0x4d, 0x4b, 0xc4, 0x30,
+	0x10, 0x65, 0xeb, 0xba, 0xb8, 0xb3, 0xe0, 0x61, 0xfc, 0xa0, 0x54, 0x90, 0xb5, 0x07, 0xf1, 0x20,
+	0x15, 0xea, 0x3f, 0x28, 0x45, 0x10, 0x3c, 0x45, 0xbc, 0x78, 0xb3, 0x66, 0x90, 0x50, 0xc9, 0xd4,
+	0x24, 0x55, 0xfc, 0xf7, 0x92, 0x49, 0xf1, 0x20, 0x75, 0x2f, 0x43, 0xde, 0xbc, 0xf7, 0x32, 0x6f,
+	0x06, 0x4e, 0x06, 0xc7, 0x81, 0x6f, 0x3a, 0xe6, 0x5e, 0x4a, 0x25, 0x18, 0x97, 0xf1, 0x5d, 0x4c,
+	0xe4, 0xe8, 0xc9, 0x49, 0x49, 0x64, 0x79, 0x0d, 0xc5, 0x9d, 0xb1, 0xfa, 0x81, 0xac, 0x36, 0xf6,
+	0xad, 0x61, 0xee, 0x9b, 0xef, 0xfb, 0x56, 0xd1, 0xc7, 0x48, 0x3e, 0xe0, 0x21, 0x64, 0x46, 0xe7,
+	0x8b, 0xed, 0xe2, 0x6a, 0xad, 0x32, 0xa3, 0x4b, 0x82, 0xb3, 0x59, 0xb5, 0x1f, 0xd8, 0x7a, 0xc2,
+	0x73, 0x90, 0x59, 0x62, 0xd8, 0xd4, 0x50, 0x49, 0x88, 0xa8, 0x52, 0xd2, 0xc7, 0x4b, 0x38, 0xe8,
+	0xd8, 0x39, 0xfe, 0x22, 0x97, 0x67, 0x93, 0x46, 0xb2, 0x3c, 0x79, 0x72, 0xea, 0x97, 0x2b, 0x5b,
+	0x58, 0x46, 0xd7, 0xdf, 0xf1, 0x78, 0x0c, 0xfb, 0xc1, 0x84, 0x77, 0x12, 0xf3, 0x5a, 0x25, 0x80,
+	0xa7, 0xb0, 0xf2, 0xe1, 0x25, 0x8c, 0x3e, 0xdf, 0x93, 0xf6, 0x84, 0x6a, 0x03, 0x9b, 0xf8, 0xcb,
+	0x23, 0xb9, 0x4f, 0xf3, 0x4a, 0xf8, 0x0c, 0x47, 0x33, 0xd9, 0x71, 0x9b, 0x52, 0xfe, 0x7f, 0x84,
+	0xe2, 0x62, 0x87, 0x22, 0x2d, 0xde, 0xad, 0xe4, 0x98, 0xb7, 0x3f, 0x01, 0x00, 0x00, 0xff, 0xff,
+	0x24, 0x90, 0x11, 0x5f, 0x82, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -205,7 +205,7 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type BookServiceClient interface {
-	FindLendingBookByID(ctx context.Context, in *RequestFindLendingBookByID, opts ...grpc.CallOption) (*ResponseFindLendingBookByID, error)
+	FindLendingBookByID(ctx context.Context, in *FindLendingBookByIDRequest, opts ...grpc.CallOption) (*FindLendingBookByIDResponse, error)
 }
 
 type bookServiceClient struct {
@@ -216,8 +216,8 @@ func NewBookServiceClient(cc *grpc.ClientConn) BookServiceClient {
 	return &bookServiceClient{cc}
 }
 
-func (c *bookServiceClient) FindLendingBookByID(ctx context.Context, in *RequestFindLendingBookByID, opts ...grpc.CallOption) (*ResponseFindLendingBookByID, error) {
-	out := new(ResponseFindLendingBookByID)
+func (c *bookServiceClient) FindLendingBookByID(ctx context.Context, in *FindLendingBookByIDRequest, opts ...grpc.CallOption) (*FindLendingBookByIDResponse, error) {
+	out := new(FindLendingBookByIDResponse)
 	err := c.cc.Invoke(ctx, "/book.BookService/FindLendingBookByID", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -227,14 +227,14 @@ func (c *bookServiceClient) FindLendingBookByID(ctx context.Context, in *Request
 
 // BookServiceServer is the server API for BookService service.
 type BookServiceServer interface {
-	FindLendingBookByID(context.Context, *RequestFindLendingBookByID) (*ResponseFindLendingBookByID, error)
+	FindLendingBookByID(context.Context, *FindLendingBookByIDRequest) (*FindLendingBookByIDResponse, error)
 }
 
 // UnimplementedBookServiceServer can be embedded to have forward compatible implementations.
 type UnimplementedBookServiceServer struct {
 }
 
-func (*UnimplementedBookServiceServer) FindLendingBookByID(ctx context.Context, req *RequestFindLendingBookByID) (*ResponseFindLendingBookByID, error) {
+func (*UnimplementedBookServiceServer) FindLendingBookByID(ctx context.Context, req *FindLendingBookByIDRequest) (*FindLendingBookByIDResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindLendingBookByID not implemented")
 }
 
@@ -243,7 +243,7 @@ func RegisterBookServiceServer(s *grpc.Server, srv BookServiceServer) {
 }
 
 func _BookService_FindLendingBookByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestFindLendingBookByID)
+	in := new(FindLendingBookByIDRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -255,7 +255,7 @@ func _BookService_FindLendingBookByID_Handler(srv interface{}, ctx context.Conte
 		FullMethod: "/book.BookService/FindLendingBookByID",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BookServiceServer).FindLendingBookByID(ctx, req.(*RequestFindLendingBookByID))
+		return srv.(BookServiceServer).FindLendingBookByID(ctx, req.(*FindLendingBookByIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

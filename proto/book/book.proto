@@ -5,14 +5,14 @@ package book;
 import "proto/user/user.proto";
 
 service BookService {
-    rpc FindLendingBookByID (RequestFindLendingBookByID) returns (ResponseFindLendingBookByID);
+    rpc FindLendingBookByID (FindLendingBookByIDRequest) returns (FindLendingBookByIDResponse);
 }
 
-message RequestFindLendingBookByID {
+message FindLendingBookByIDRequest {
     string id = 1;
 }
 
-message ResponseFindLendingBookByID {
+message FindLendingBookByIDResponse {
     Book book = 1;
     user.User borrower = 2;
 }
