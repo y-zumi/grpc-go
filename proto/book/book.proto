@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package book;
 
+option go_package = "github.com/y-zumi/grpc-go/proto/book";
+
 import "proto/user/user.proto";
 
 service BookService {
