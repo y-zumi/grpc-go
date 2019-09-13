@@ -6,7 +6,7 @@ option go_package = "github.com/y-zumi/grpc-go/proto/book";
 
 import "proto/user/user.proto";
 
-service BookService {
+service Books {
     rpc FindLendingBookByID (FindLendingBookByIDRequest) returns (FindLendingBookByIDResponse);
 }
 
