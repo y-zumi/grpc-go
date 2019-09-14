@@ -1,9 +1,9 @@
-FROM golang:1.13.0-alpine
-
+FROM golang:1.13.0 AS builder
 WORKDIR /go/src/github.com/y-zumi/grpc-go
+COPY . .
+RUN make build-user
 
-COPY . /go/src/github.com/y-zumi/grpc-go
-
-EXPOSE "50001"
-
-CMD ["go", "run", "user_server/main.go"]
+FROM alpine:latest
+RUN apk add --no-cache ca-certificates
+COPY --from=builder /go/src/github.com/y-zumi/grpc-go/bin/user /usr/local/bin
+ENTRYPOINT ["/usr/local/bin/user"]
