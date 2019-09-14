@@ -5,11 +5,11 @@ https://y-zumi.hatenablog.com/entry/2019/09/13/234018
 ## Overview
 1. start User gRPC server
     ```bash
-    $ go run user_service/main.go
+    $ go run user_server/main.go
     ```
 1. start Book gRPC server
     ```bash
-   $ go run book_service/main.go
+   $ go run book_server/main.go
     ```
 1. access to Book gRPC server with [grpcurl](https://github.com/kazegusuri/grpcurl)
     ```bash

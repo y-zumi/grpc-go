@@ -6,4 +6,4 @@ COPY . /go/src/github.com/y-zumi/grpc-go
 
 EXPOSE "50001"
 
-CMD ["go", "run", "user_service/main.go"]
+CMD ["go", "run", "user_server/main.go"]
